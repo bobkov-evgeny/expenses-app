@@ -4,7 +4,7 @@
     const cors = require('cors');
     const app = express();
 
-    const apiRoutes = require('./src/modules/routes/routes')
+    const expensesRouter = require('./src/modules/routes/expenses.router')
 
     // Подключаемся к Базе данных
     const uri = "mongodb+srv://Bobkov:Nhk09327rus!@cluster0.yxkny.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -13,7 +13,7 @@
 
     app.use(cors());
     app.use(bodyParser.json())
-    app.use("/", apiRoutes)
+    app.use("/expenses", expensesRouter)
     app.listen(9000, () => {
         console.log('Server started');
     })
